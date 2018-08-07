@@ -2,9 +2,6 @@
 //  main.cpp
 //  ticTacToe
 //
-//  Created by Ghose, Jenny on 8/6/18.
-//  Copyright © 2018 Ghose, Jenny. All rights reserved.
-//
 
 #include <iostream>
 using namespace std;
@@ -14,31 +11,31 @@ int checkWin(char board[]);
 
 int main() {
     char board[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    
+
     cout << "Welcome to My Ultra Amazing Tic Tac Toe Game!" << endl << endl;
-    
+
     int gameStatus = -1, player = 0, decision;
     char mark;
-    
+
     while (gameStatus == -1) {
         player++;
-        
+
         drawBoard(board);
-        
+
         player = (player % 2) ? 1 : 2;
-        
+
         cout << "Player " << player << ", enter a number: ";
         cin >> decision;
-        
+
         mark = (player == 1) ? 'X' : 'O';
-        
+
         if (board[decision] == 'X' || board[decision] == 'O') {
             cout << "Invalid move. You cannot change this square." << endl;
             break;
         } else {
             board[decision] = mark;
         }
-        
+
         gameStatus = checkWin(board);
     }
     drawBoard(board);
@@ -47,7 +44,7 @@ int main() {
     } else {
         cout << "Game over. Better luck next time!" << endl;
     }
-    
+
     return 0;
 }
 
